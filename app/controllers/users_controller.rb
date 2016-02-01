@@ -10,6 +10,7 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
+    @tweets = $twitter_connect.user_timeline("casetabs")
   end
 
   # GET /users/new
