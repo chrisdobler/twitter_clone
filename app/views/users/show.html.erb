@@ -4,7 +4,9 @@
 
 <% @tweets.each do |tweet| %>
 	<p>
-	<%=tweet.text if tweet.is_a?(Twitter::Tweet) %>
+	<% if tweet.is_a?(Twitter::Tweet) %>
+		<%=tweet.text.gsub(/(@[A-z0-9]{1,20})/, '<a href=\1>\1</a>').html_safe %>
+	<% end %>
 	</p>
 <% end %> 
 
